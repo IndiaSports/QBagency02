@@ -24,11 +24,8 @@
             --text-muted: #5b677b;
             --purple-accent: #7c3aed;
             --purple-glow: #a78bfa;
-            --gold-light: #fef9e3;
-            --shadow-sm: 0 8px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.05);
             --shadow-md: 0 20px 35px -12px rgba(0, 0, 0, 0.08);
             --radius-card: 28px;
-            --radius-btn: 40px;
         }
 
         body {
@@ -36,7 +33,6 @@
             background: var(--bg-light);
             color: var(--text-dark);
             line-height: 1.45;
-            scroll-behavior: smooth;
         }
 
         .agency-header {
@@ -70,7 +66,6 @@
         }
 
         .logo span {
-            color: var(--purple-accent);
             background: linear-gradient(135deg, #7c3aed, #c084fc);
             background-clip: text;
             -webkit-background-clip: text;
@@ -86,10 +81,6 @@
             display: flex;
             align-items: center;
             gap: 6px;
-        }
-
-        .back-home i {
-            font-size: 13px;
         }
 
         .back-home:hover {
@@ -113,7 +104,6 @@
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
-            letter-spacing: -0.3px;
         }
 
         .page-title p {
@@ -123,9 +113,6 @@
         }
 
         .plan-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 32px;
             max-width: 580px;
             margin: 0 auto;
         }
@@ -136,7 +123,6 @@
             box-shadow: var(--shadow-md);
             border: 1px solid rgba(124, 58, 237, 0.08);
             overflow: hidden;
-            transition: transform 0.2s ease;
         }
 
         .plan-card-inner {
@@ -211,7 +197,6 @@
         .duration-btn.active {
             background: var(--purple-accent);
             color: white;
-            border-color: var(--purple-accent);
             box-shadow: 0 6px 12px -8px rgba(124,58,237,0.4);
         }
 
@@ -330,7 +315,6 @@
             gap: 10px;
             cursor: pointer;
             transition: 0.2s;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.05);
         }
 
         .checkout-btn:hover {
@@ -338,14 +322,14 @@
             transform: scale(0.98);
         }
 
-        /* QR PAGE */
+        /* QR PAGE (modal) */
         .qr-page {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.75);
+            background: rgba(0,0,0,0.85);
             backdrop-filter: blur(8px);
             z-index: 1000;
             display: flex;
@@ -362,7 +346,7 @@
         }
 
         .qr-container {
-            max-width: 480px;
+            max-width: 500px;
             width: 90%;
             background: white;
             border-radius: 40px;
@@ -370,6 +354,8 @@
             text-align: center;
             position: relative;
             box-shadow: 0 30px 40px rgba(0,0,0,0.2);
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
         .close-qr {
@@ -378,32 +364,34 @@
             top: 20px;
             background: #f0f0f0;
             border-radius: 50%;
-            width: 32px;
-            height: 32px;
+            width: 34px;
+            height: 34px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            transition: 0.2s;
         }
 
         .qr-title {
             font-weight: 700;
-            font-size: 22px;
+            font-size: 24px;
             margin: 8px 0 4px;
         }
 
         .qr-amount {
-            font-size: 28px;
+            font-size: 32px;
             font-weight: 800;
             margin: 12px 0;
+            color: var(--purple-accent);
         }
 
         .qr-upi-id {
             background: #f2f2f6;
-            padding: 8px;
-            border-radius: 30px;
+            padding: 10px;
+            border-radius: 40px;
             font-size: 14px;
-            font-weight: 500;
+            font-weight: 600;
             margin: 10px 0;
             word-break: break-all;
         }
@@ -411,11 +399,9 @@
         .qr-premium-card {
             background: #0c0c12;
             border-radius: 36px;
-            padding: 20px;
+            padding: 24px 20px;
             margin: 20px 0;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.3);
         }
 
         .qr-code-img {
@@ -427,8 +413,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #ffffff;
-            padding: 8px;
+            padding: 12px;
         }
 
         .qr-code-img img {
@@ -440,7 +425,10 @@
 
         .upi-note {
             font-size: 13px;
-            color: #aaa;
+            color: #ccc;
+            background: rgba(255,255,255,0.1);
+            padding: 10px;
+            border-radius: 30px;
             word-break: break-all;
         }
 
@@ -453,7 +441,7 @@
             font-weight: 700;
             font-size: 16px;
             color: white;
-            margin-top: 12px;
+            margin-top: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -461,51 +449,51 @@
             cursor: pointer;
         }
 
-        .coolinput {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            position: static;
-            margin-bottom: 16px;
+        .telegram-input-group {
+            background: #f8f9ff;
+            border-radius: 28px;
+            padding: 16px;
+            margin: 16px 0 12px;
+            text-align: left;
         }
 
-        .coolinput label.text {
-            font-size: 0.75rem;
-            color: #818CF8;
+        .telegram-input-group label {
             font-weight: 700;
-            position: relative;
-            top: 0.5rem;
-            margin: 0 0 0 7px;
-            padding: 0 3px;
-            background: #ffffff;
-            width: fit-content;
-            z-index: 2;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
         }
 
-        .coolinput input[type=text].input {
-            padding: 12px 14px;
-            font-size: 0.9rem;
-            border: 2px solid #818CF8;
-            border-radius: 16px;
-            background: #ffffff;
-            transition: 0.2s;
+        .telegram-input-group input {
             width: 100%;
+            padding: 14px 16px;
+            border-radius: 60px;
+            border: 1.5px solid #e2e8f0;
+            font-size: 15px;
+            transition: 0.2s;
         }
 
-        .coolinput input[type=text].input:focus {
+        .telegram-input-group input:focus {
             outline: none;
             border-color: var(--purple-accent);
-            box-shadow: 0 0 0 3px rgba(124,58,237,0.2);
+            box-shadow: 0 0 0 3px rgba(124,58,237,0.1);
+        }
+
+        .error-msg {
+            color: #e53e3e;
+            font-size: 12px;
+            margin-top: 8px;
+            font-weight: 500;
         }
 
         .pay-now-btn {
             background: linear-gradient(95deg, #7c3aed, #a855f7);
             border: none;
             width: 100%;
-            padding: 14px;
+            padding: 16px;
             border-radius: 60px;
-            font-weight: 700;
-            font-size: 16px;
+            font-weight: 800;
+            font-size: 18px;
             color: white;
             display: flex;
             align-items: center;
@@ -513,28 +501,13 @@
             gap: 12px;
             cursor: pointer;
             transition: 0.2s;
-            margin-top: 12px;
+            margin-top: 8px;
         }
 
         .pay-now-btn.disabled {
-            opacity: 0.5;
+            opacity: 0.6;
             pointer-events: none;
             filter: grayscale(0.1);
-        }
-
-        .telegram-note {
-            background: #eef2ff;
-            padding: 12px;
-            border-radius: 28px;
-            font-size: 13px;
-            margin-top: 16px;
-        }
-
-        .error-msg {
-            color: #d9534f;
-            font-size: 12px;
-            margin-top: 6px;
-            text-align: left;
         }
 
         @media (max-width: 560px) {
@@ -549,7 +522,7 @@
 <header class="agency-header">
     <div class="container header-inner">
         <div class="logo">QB <span>Agency</span></div>
-        <a href="https://t.me/quicklygrow" target="_blank" class="back-home" id="backToHome"><i class="fab fa-telegram"></i> Back to main</a>
+        <a href="https://t.me/quicklygrow" target="_blank" class="back-home"><i class="fab fa-telegram"></i> Back to main</a>
     </div>
 </header>
 
@@ -557,7 +530,7 @@
     <div class="container">
         <div class="page-title">
             <h1>Activate your campaign</h1>
-            <p>Choose plan, add extras & complete payment — premium growth starts now</p>
+            <p>Select your plan, add extras & complete payment — premium growth starts now</p>
         </div>
         <div class="plan-grid">
             <div class="plan-card">
@@ -568,7 +541,7 @@
                     </div>
                     <div class="price-section">
                         <span class="price-main" id="displayPrice">₹19,998</span>
-                        <small> + taxes if any</small>
+                        <small> / month</small>
                     </div>
                     <div class="duration-buttons" id="durationGroup">
                         <div class="duration-btn" data-months="1">1 Month</div>
@@ -576,10 +549,10 @@
                         <div class="duration-btn" data-months="3">3 Months <span class="discount-badge">-₹10k</span></div>
                     </div>
                     <div class="features-list">
-                        <div class="feature-item"><i class="fas fa-check-circle"></i> 1 Month management (per month base)</div>
-                        <div class="feature-item"><i class="fas fa-check-circle"></i> Unlimited Telegram setup (single channel/group)</div>
-                        <div class="feature-item"><i class="fas fa-check-circle"></i> High-converting Landing pages</div>
-                        <div class="feature-item"><i class="fas fa-check-circle"></i> Professional Video + Poster creatives</div>
+                        <div class="feature-item"><i class="fas fa-check-circle"></i> Full campaign management (monthly basis)</div>
+                        <div class="feature-item"><i class="fas fa-check-circle"></i> Telegram channel/group optimization</div>
+                        <div class="feature-item"><i class="fas fa-check-circle"></i> High-converting landing pages</div>
+                        <div class="feature-item"><i class="fas fa-check-circle"></i> Video + Poster creatives included</div>
                     </div>
                     <div class="addons">
                         <div class="addon-row">
@@ -602,35 +575,35 @@
     </div>
 </main>
 
-<!-- QR Payment Overlay -->
+<!-- QR Payment Modal (separate page / step) -->
 <div id="qrPaymentModal" class="qr-page">
     <div class="qr-container">
         <div class="close-qr" id="closeQrBtn"><i class="fas fa-times"></i></div>
-        <div class="qr-title">⚡ Secure Payment</div>
+        <div class="qr-title">🔐 Secure Payment</div>
         <div class="qr-amount" id="qrAmountDisplay">₹0</div>
-        <div class="qr-upi-id">UPI: yahooo999@apl</div>
+        <div class="qr-upi-id">📱 UPI ID: yahooo999@apl</div>
         
-        <!-- Coolinput style Telegram username field -->
-        <div class="coolinput">
-            <label for="telegramInputField" class="text">Telegram Username:</label>
-            <input type="text" placeholder="e.g., user_name or @john_doe" id="telegramInputField" class="input">
-            <div id="usernameLiveError" class="error-msg"></div>
+        <!-- Telegram username field (required step) -->
+        <div class="telegram-input-group">
+            <label><i class="fab fa-telegram"></i> Telegram Username (for verification)</label>
+            <input type="text" id="telegramUsernameInput" placeholder="e.g., john_doe or @alex123" autocomplete="off">
+            <div id="usernameErrorMsg" class="error-msg"></div>
+            <div style="font-size: 11px; color:#5b677b; margin-top: 6px;">* Must contain at least 3 letters/numbers after removing underscores & special chars</div>
         </div>
 
-        <!-- Pay Now button that becomes active after 3+ chars -->
-        <button id="dynamicPayNowBtn" class="pay-now-btn disabled">
-            <i class="fas fa-credit-card"></i> Pay Now ₹0
-        </button>
-
-        <!-- QR premium card section -->
+        <!-- QR + UPI preview card -->
         <div class="qr-premium-card">
             <div class="qr-code-img" id="qrCodeContainer">
-                <div style="font-size:12px; color:#aaa;">Enter username to load QR</div>
+                <div style="font-size: 12px; color: #aaa; text-align: center;">Enter username → QR appears</div>
             </div>
-            <div class="upi-note" id="upiNotePreview">UPI Note: —</div>
+            <div class="upi-note" id="upiNotePreview">📝 UPI Note: —</div>
             <button id="openUpiAppBtn" class="open-upi-btn"><i class="fab fa-google-pay"></i> Open UPI App</button>
         </div>
-        <div style="margin-top: 12px; font-size: 11px; color:#777;">QR code refreshes automatically</div>
+
+        <button id="dynamicPayNowBtn" class="pay-now-btn disabled">
+            <i class="fas fa-qrcode"></i> Pay Now ₹0
+        </button>
+        <div style="margin-top: 14px; font-size: 11px; color: #aaa;">QR code updates automatically with your username & amount</div>
     </div>
 </div>
 
@@ -642,13 +615,14 @@
     const ADDON_AGENCY = 11000;
     const ADDON_FUNDS = 9920;
 
-    let paymentType = "full";
+    // State
+    let paymentType = "full";       // "full" or "half"
     let durationMonths = 2;
     let addonAgency = false;
     let addonFunds = false;
     let currentTotal = 0;
 
-    // DOM elements
+    // DOM elements (main)
     const displayPriceSpan = document.getElementById('displayPrice');
     const totalAmountSpan = document.getElementById('totalAmount');
     const toggleAgency = document.getElementById('toggleAgencyAccount');
@@ -656,17 +630,19 @@
     const durationBtns = document.querySelectorAll('.duration-btn');
     const paymentToggleOptions = document.querySelectorAll('#paymentToggle .switch-option');
     const checkoutBtn = document.getElementById('checkoutBtn');
+    
+    // Modal elements
     const qrModal = document.getElementById('qrPaymentModal');
-    const closeQr = document.getElementById('closeQrBtn');
+    const closeQrBtn = document.getElementById('closeQrBtn');
     const qrAmountDisplay = document.getElementById('qrAmountDisplay');
     const upiNotePreviewSpan = document.getElementById('upiNotePreview');
-    const openUpiBtn = document.getElementById('openUpiAppBtn');
-    const telegramInput = document.getElementById('telegramInputField');
-    const usernameErrorDiv = document.getElementById('usernameLiveError');
+    const openUpiAppBtn = document.getElementById('openUpiAppBtn');
     const dynamicPayBtn = document.getElementById('dynamicPayNowBtn');
+    const telegramInput = document.getElementById('telegramUsernameInput');
+    const usernameErrorSpan = document.getElementById('usernameErrorMsg');
     const qrCodeContainer = document.getElementById('qrCodeContainer');
 
-    // Helper: transform username with underscore logic -> TG positions + clean alnum
+    // Helper: Transform Telegram username according to spec (underscore positions + alnum)
     function transformTelegramUsernameToUPINote(raw) {
         let trimmed = raw.trim();
         if (trimmed.startsWith('@')) trimmed = trimmed.substring(1);
@@ -685,7 +661,7 @@
         
         let prefix = "";
         if (underscoresPos.length > 0) {
-            // for each underscore we add TG{position+1} (1-indexed position as per spec: TG5, TG7 etc)
+            // for each underscore we add TG{position+1} (1-indexed position)
             prefix = underscoresPos.map(pos => `TG${pos+1}`).join('');
         } else {
             prefix = "TG0";
@@ -696,179 +672,200 @@
         return finalNote;
     }
 
-    // compute total function
-    function computeBasePricePerMonth() {
-        return paymentType === 'full' ? BASE_MONTHLY_FULL : BASE_MONTHLY_HALF;
-    }
-
+    // Compute total based on current settings
     function computeTotal() {
-        let monthly = computeBasePricePerMonth();
+        let monthly = paymentType === 'full' ? BASE_MONTHLY_FULL : BASE_MONTHLY_HALF;
         let subtotal = monthly * durationMonths;
         if (durationMonths === 3) subtotal -= DISCOUNT_3MONTH;
         if (subtotal < 0) subtotal = 0;
         if (addonAgency) subtotal += ADDON_AGENCY;
         if (addonFunds) subtotal += ADDON_FUNDS;
         currentTotal = subtotal;
-        let monthlyDisplay = monthly;
-        displayPriceSpan.innerText = `₹${monthlyDisplay.toLocaleString('en-IN')}`;
+        // update main UI
+        displayPriceSpan.innerText = `₹${monthly.toLocaleString('en-IN')}`;
         totalAmountSpan.innerText = `₹${currentTotal.toLocaleString('en-IN')}`;
         return currentTotal;
     }
 
-    function updateUIControls() {
+    // Update toggle UI and active states
+    function updateMainUI() {
         computeTotal();
+        // addon toggles
         if (addonAgency) toggleAgency.classList.add('active');
         else toggleAgency.classList.remove('active');
         if (addonFunds) toggleFunds.classList.add('active');
         else toggleFunds.classList.remove('active');
+        
         paymentToggleOptions.forEach(opt => {
-            if ((opt.getAttribute('data-type') === 'full' && paymentType === 'full') ||
-                (opt.getAttribute('data-type') === 'half' && paymentType === 'half')) opt.classList.add('active');
-            else opt.classList.remove('active');
+            const type = opt.getAttribute('data-type');
+            if ((type === 'full' && paymentType === 'full') || (type === 'half' && paymentType === 'half')) {
+                opt.classList.add('active');
+            } else {
+                opt.classList.remove('active');
+            }
         });
+        
         durationBtns.forEach(btn => {
-            let months = parseInt(btn.getAttribute('data-months'));
+            const months = parseInt(btn.getAttribute('data-months'));
             if (months === durationMonths) btn.classList.add('active');
             else btn.classList.remove('active');
         });
     }
 
-    // Event bindings for main card
-    paymentToggleOptions.forEach(opt => opt.addEventListener('click', () => { paymentType = opt.getAttribute('data-type'); updateUIControls(); }));
-    durationBtns.forEach(btn => btn.addEventListener('click', () => { durationMonths = parseInt(btn.getAttribute('data-months')); updateUIControls(); }));
-    toggleAgency.addEventListener('click', () => { addonAgency = !addonAgency; updateUIControls(); });
-    toggleFunds.addEventListener('click', () => { addonFunds = !addonFunds; updateUIControls(); });
-    
-    // QR + dynamic username logic
+    // Validate username & get UPI note
     function validateAndGetUPINote() {
-        let rawUser = telegramInput.value;
-        if (rawUser.trim() === "") return { valid: false, note: null, error: "Enter Telegram username" };
-        let transformed = transformTelegramUsernameToUPINote(rawUser);
+        const raw = telegramInput.value;
+        if (!raw.trim()) return { valid: false, note: null, error: "Telegram username required" };
+        const transformed = transformTelegramUsernameToUPINote(raw);
         if (!transformed) {
-            return { valid: false, note: null, error: "Username must have at least 3 letters/numbers after removing underscores & special chars." };
+            return { valid: false, note: null, error: "Username must have at least 3 letters/numbers (underscores & special chars removed)" };
         }
         return { valid: true, note: transformed, error: null };
     }
-    
-    function updatePayButtonAndQR() {
+
+    // Generate QR code image and update pay button / UPI note
+    function updateQRAndPayButton() {
+        if (!qrModal.classList.contains('active')) return;
+        
         const validation = validateAndGetUPINote();
-        const totalAmt = currentTotal;
-        if (validation.valid && totalAmt > 0) {
+        const total = currentTotal;
+        
+        if (validation.valid && total > 0) {
+            // Enable pay button
             dynamicPayBtn.classList.remove('disabled');
-            dynamicPayBtn.innerHTML = `<i class="fas fa-qrcode"></i> Pay Now ₹${totalAmt.toLocaleString('en-IN')} via UPI QR`;
-            usernameErrorDiv.innerText = "";
+            dynamicPayBtn.innerHTML = `<i class="fas fa-credit-card"></i> Pay Now ₹${total.toLocaleString('en-IN')}`;
+            usernameErrorSpan.innerText = "";
+            
             // update UPI note preview
             upiNotePreviewSpan.innerText = `📝 UPI Note: ${validation.note}`;
-            // generate fresh QR code using qrserver API
-            const upiLink = `upi://pay?pa=yahooo999@apl&pn=Advertising%20Agency&am=${totalAmt}&cu=INR&tn=${encodeURIComponent(validation.note)}`;
-            const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(upiLink)}`;
-            qrCodeContainer.innerHTML = `<img src="${qrUrl}" alt="QR Code" style="width:100%; height:100%; border-radius: 20px;" onerror="this.onerror=null;this.src='https://placehold.co/200x200?text=QR+Error';">`;
-            // store upi link for open button
+            
+            // Build UPI deep link
+            const upiLink = `upi://pay?pa=yahooo999@apl&pn=QB%20Agency&am=${total}&cu=INR&tn=${encodeURIComponent(validation.note)}`;
+            // Store link for open button
+            openUpiAppBtn.setAttribute('data-upi-link', upiLink);
             dynamicPayBtn.setAttribute('data-upi-link', upiLink);
-            openUpiBtn.setAttribute('data-upi-deeplink', upiLink);
+            
+            // Generate fresh QR code using qrserver API (reliable)
+            const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(upiLink)}`;
+            qrCodeContainer.innerHTML = `<img src="${qrApiUrl}" alt="QR Code" style="width:100%; height:100%; border-radius: 20px;" onerror="this.onerror=null;this.innerHTML='<div style=font-size:12px;>⚠️ Tap Open UPI</div>';">`;
         } else {
             dynamicPayBtn.classList.add('disabled');
             dynamicPayBtn.innerHTML = `<i class="fas fa-lock"></i> Enter valid username (3+ chars)`;
-            usernameErrorDiv.innerText = validation.error || "Need at least 3 alphanumeric characters after removing underscores";
-            upiNotePreviewSpan.innerText = `UPI Note: — waiting valid username`;
-            qrCodeContainer.innerHTML = `<div style="font-size:12px; color:#aaa; text-align:center;">⚡ Enter valid username<br>to generate QR</div>`;
-            openUpiBtn.setAttribute('data-upi-deeplink', '');
+            usernameErrorSpan.innerText = validation.error || "Username invalid or total amount zero";
+            upiNotePreviewSpan.innerText = `📝 UPI Note: — waiting valid username`;
+            qrCodeContainer.innerHTML = `<div style="font-size:12px; color:#aaa; text-align:center;">🔒 Valid username required<br>to generate QR code</div>`;
+            openUpiAppBtn.setAttribute('data-upi-link', '');
+            dynamicPayBtn.setAttribute('data-upi-link', '');
         }
     }
     
-    telegramInput.addEventListener('input', () => {
-        updatePayButtonAndQR();
-    });
-    
-    // Pay now click: if active, show payment ready, but we already have QR. Also open UPI?
-    dynamicPayBtn.addEventListener('click', (e) => {
-        if (dynamicPayBtn.classList.contains('disabled')) {
-            e.preventDefault();
-            usernameErrorDiv.innerText = "⚠️ Please enter a valid Telegram username (min 3 letters/numbers)";
-            return;
+    // Sync modal amount with current total
+    function syncModalAmount() {
+        if (qrModal.classList.contains('active')) {
+            qrAmountDisplay.innerText = `₹${currentTotal.toLocaleString('en-IN')}`;
+            updateQRAndPayButton();
         }
-        const upiLink = dynamicPayBtn.getAttribute('data-upi-link');
-        if (upiLink) {
-            window.location.href = upiLink;
-            setTimeout(() => {
-                alert(`If app doesn't open, please use UPI ID: yahooo999@apl\nAmount: ₹${currentTotal}\nNote: ${validateAndGetUPINote().note}`);
-            }, 400);
-        }
-    });
-    
-    openUpiBtn.addEventListener('click', () => {
+    }
+
+    // Open UPI app handler
+    function handleOpenUpi() {
         const validation = validateAndGetUPINote();
         if (!validation.valid || currentTotal <= 0) {
-            usernameErrorDiv.innerText = "❌ Please enter valid username before opening UPI.";
+            usernameErrorSpan.innerText = "❌ Please enter a valid Telegram username first";
             return;
         }
-        const upiLink = `upi://pay?pa=yahooo999@apl&pn=Advertising%20Agency&am=${currentTotal}&cu=INR&tn=${encodeURIComponent(validation.note)}`;
+        const upiLink = `upi://pay?pa=yahooo999@apl&pn=QB%20Agency&am=${currentTotal}&cu=INR&tn=${encodeURIComponent(validation.note)}`;
         window.location.href = upiLink;
         setTimeout(() => {
-            alert("Tap again if UPI didn't open. Use UPI ID: yahooo999@apl");
-        }, 500);
-    });
-    
-    // Continue to payment -> open modal, reset username field, update UI
-    checkoutBtn.addEventListener('click', () => {
-        computeTotal(); // refresh total
-        if (currentTotal <= 0) {
-            alert("Invalid total amount. Please check plan.");
-            return;
-        }
-        qrModal.classList.add('active');
-        telegramInput.value = "";
-        updatePayButtonAndQR();
-        // also update amount display inside modal
-        qrAmountDisplay.innerText = `₹${currentTotal.toLocaleString('en-IN')}`;
-        // reset error
-        usernameErrorDiv.innerText = "";
-        // refresh preview for amount
-        const totalForModal = currentTotal;
-        dynamicPayBtn.innerHTML = `<i class="fas fa-qrcode"></i> Pay Now ₹${totalForModal.toLocaleString('en-IN')} via UPI QR`;
-        dynamicPayBtn.classList.add('disabled'); // initially disabled until username typed
-        updatePayButtonAndQR(); // re-run for disabled state check
-    });
-    
-    closeQr.addEventListener('click', () => qrModal.classList.remove('active'));
-    qrModal.addEventListener('click', (e) => { if(e.target === qrModal) qrModal.classList.remove('active'); });
-    
-    // reopen and refresh total on modal display dynamic amount
-    function syncModalAmount() {
-        if(qrModal.classList.contains('active')) {
-            qrAmountDisplay.innerText = `₹${currentTotal.toLocaleString('en-IN')}`;
-            updatePayButtonAndQR();
-        }
+            alert("If UPI app didn't open automatically, please pay manually using:\nUPI ID: yahooo999@apl\nAmount: ₹" + currentTotal + "\nNote: " + validation.note);
+        }, 600);
     }
     
-    // recalc when any change after modal open? but we call inside checkout click and updateUIControls will recompute total.
-    const origUpdateUI = updateUIControls;
-    window.updateUIControls = function() {
-        origUpdateUI();
-        syncModalAmount();
-    };
-    updateUIControls = function() {
-        computeTotal();
-        updateUIControls();
-        syncModalAmount();
-    };
-    // override binding to keep sync
-    const superUpdate = updateUIControls;
-    updateUIControls = function() { superUpdate(); if(qrModal.classList.contains('active')) syncModalAmount(); };
-    // patch event handlers to call updated method
-    const eventsList = [paymentToggleOptions, durationBtns, toggleAgency, toggleFunds];
-    const refreshGlobal = () => { computeTotal(); updateUIControls(); syncModalAmount(); };
-    paymentToggleOptions.forEach(opt => opt.removeEventListener('click', refreshGlobal));
-    durationBtns.forEach(btn => btn.removeEventListener('click', refreshGlobal));
-    // rebind
-    paymentToggleOptions.forEach(opt => opt.addEventListener('click', refreshGlobal));
-    durationBtns.forEach(btn => btn.addEventListener('click', refreshGlobal));
-    toggleAgency.addEventListener('click', refreshGlobal);
-    toggleFunds.addEventListener('click', refreshGlobal);
+    // Pay now button action (same as open UPI but direct)
+    function handlePayNow() {
+        const validation = validateAndGetUPINote();
+        if (!validation.valid || currentTotal <= 0) {
+            usernameErrorSpan.innerText = "⚠️ Please enter a valid Telegram username (min 3 alnum chars)";
+            return;
+        }
+        const upiLink = `upi://pay?pa=yahooo999@apl&pn=QB%20Agency&am=${currentTotal}&cu=INR&tn=${encodeURIComponent(validation.note)}`;
+        window.location.href = upiLink;
+        setTimeout(() => {
+            alert("Payment request sent. If app not opened, use UPI ID: yahooo999@apl | Amount: ₹" + currentTotal + " | Note: " + validation.note);
+        }, 500);
+    }
+
+    // Event listeners for main card
+    paymentToggleOptions.forEach(opt => {
+        opt.addEventListener('click', () => {
+            paymentType = opt.getAttribute('data-type');
+            updateMainUI();
+            syncModalAmount();
+        });
+    });
     
-    // initial
-    computeTotal();
-    updateUIControls();
+    durationBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            durationMonths = parseInt(btn.getAttribute('data-months'));
+            updateMainUI();
+            syncModalAmount();
+        });
+    });
+    
+    toggleAgency.addEventListener('click', () => {
+        addonAgency = !addonAgency;
+        updateMainUI();
+        syncModalAmount();
+    });
+    
+    toggleFunds.addEventListener('click', () => {
+        addonFunds = !addonFunds;
+        updateMainUI();
+        syncModalAmount();
+    });
+    
+    // Continue to payment: open modal and reset username field
+    checkoutBtn.addEventListener('click', () => {
+        computeTotal();
+        if (currentTotal <= 0) {
+            alert("Invalid plan total. Please check your selection.");
+            return;
+        }
+        // Reset username field
+        telegramInput.value = "";
+        usernameErrorSpan.innerText = "";
+        qrModal.classList.add('active');
+        qrAmountDisplay.innerText = `₹${currentTotal.toLocaleString('en-IN')}`;
+        updateQRAndPayButton();
+    });
+    
+    // Close modal
+    closeQrBtn.addEventListener('click', () => qrModal.classList.remove('active'));
+    qrModal.addEventListener('click', (e) => {
+        if (e.target === qrModal) qrModal.classList.remove('active');
+    });
+    
+    // Real-time username validation + QR update
+    telegramInput.addEventListener('input', () => {
+        if (qrModal.classList.contains('active')) {
+            updateQRAndPayButton();
+        }
+    });
+    
+    // Buttons inside modal
+    openUpiAppBtn.addEventListener('click', handleOpenUpi);
+    dynamicPayBtn.addEventListener('click', handlePayNow);
+    
+    // Also update when total changes while modal open (via addons/duration inside modal invisible? But sync already)
+    // Additional: if any change in main plan while modal open, sync
+    const originalCompute = computeTotal;
+    window.computeTotal = function() {
+        originalCompute();
+        syncModalAmount();
+    };
+    
+    // initial compute
+    updateMainUI();
     syncModalAmount();
 </script>
 </body>
