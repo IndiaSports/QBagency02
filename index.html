@@ -2,641 +2,556 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>QB Agency | Activate Your Plan — Premium Advertising</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>QB Agency | High-Converting Premium Growth</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         :root {
-            --bg-light: #fbfbfd;
-            --card-white: #ffffff;
-            --soft-gray: #f5f5f7;
-            --border-light: #e9ecef;
-            --text-dark: #1a1e2b;
-            --text-muted: #5b677b;
-            --purple-accent: #7c3aed;
-            --purple-glow: #a78bfa;
-            --shadow-md: 0 20px 35px -12px rgba(0, 0, 0, 0.08);
-            --radius-card: 28px;
+            --bg-dark: #09090b;
+            --card-dark: #141417;
+            --card-border: #27272a;
+            --purple-neon: #a855f7;
+            --purple-glow: rgba(168, 85, 247, 0.15);
+            --text-main: #f4f4f5;
+            --text-muted: #a1a1aa;
+            --neon-green: #22c55e;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.45;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.4;
+            overflow-x: hidden;
         }
 
-        .agency-header {
-            background: rgba(255,255,255,0.92);
+        /* Fixed Header */
+        .premium-nav {
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--card-border);
+            background: rgba(9, 9, 11, 0.8);
             backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-light);
             position: sticky;
             top: 0;
             z-index: 100;
-            padding: 14px 0;
         }
 
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .header-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
+        .nav-logo {
             font-family: 'Playfair Display', serif;
-            font-size: 26px;
+            font-size: 22px;
             font-weight: 700;
-            letter-spacing: -0.3px;
-            color: #111;
+            letter-spacing: -0.5px;
         }
 
-        .logo span {
-            background: linear-gradient(135deg, #7c3aed, #c084fc);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
+        .nav-logo span {
+            color: var(--purple-neon);
+            text-shadow: 0 0 15px var(--purple-glow);
         }
 
-        .back-home {
-            font-size: 14px;
-            font-weight: 500;
+        .btn-back {
+            font-size: 13px;
+            font-weight: 600;
             color: var(--text-muted);
             text-decoration: none;
-            transition: 0.2s;
             display: flex;
             align-items: center;
             gap: 6px;
+            padding: 6px 14px;
+            border: 1px solid var(--card-border);
+            border-radius: 100px;
+            transition: all 0.2s ease;
         }
 
-        .back-home:hover {
-            color: var(--purple-accent);
+        .btn-back:hover {
+            color: var(--text-main);
+            border-color: var(--purple-neon);
         }
 
-        .activate-main {
-            padding: 40px 0 70px;
-        }
-
-        .page-title {
-            text-align: center;
-            margin-bottom: 36px;
-        }
-
-        .page-title h1 {
-            font-size: 32px;
-            font-weight: 700;
-            font-family: 'Playfair Display', serif;
-            background: linear-gradient(120deg, #1e1b2f, #4c1d95);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-
-        .page-title p {
-            color: var(--text-muted);
-            font-size: 15px;
-            margin-top: 8px;
-        }
-
-        .plan-grid {
-            max-width: 580px;
+        /* Main Workspace Container */
+        .app-workspace {
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 24px;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 24px;
+            min-height: calc(100vh - 65px);
+            align-items: start;
         }
 
-        .plan-card {
-            background: var(--card-white);
-            border-radius: var(--radius-card);
-            box-shadow: var(--shadow-md);
-            border: 1px solid rgba(124, 58, 237, 0.08);
-            overflow: hidden;
+        /* Left Side: Controls */
+        .panel-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
         }
 
-        .plan-card-inner {
-            padding: 28px 24px;
+        .panel-heading h1 {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
         }
 
-        .payment-method-switch {
-            background: var(--soft-gray);
-            border-radius: 60px;
+        .panel-heading p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .section-card {
+            background: var(--card-dark);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 16px;
+        }
+
+        .card-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        /* Switch Selector */
+        .premium-switch {
+            background: #09090b;
             padding: 4px;
-            display: inline-flex;
-            width: 100%;
-            margin-bottom: 28px;
-            gap: 6px;
+            border-radius: 12px;
+            display: flex;
+            gap: 4px;
+            border: 1px solid var(--card-border);
         }
 
-        .switch-option {
+        .switch-btn {
             flex: 1;
             text-align: center;
-            padding: 10px 0;
-            font-weight: 600;
-            font-size: 15px;
-            border-radius: 40px;
-            cursor: pointer;
-            transition: 0.2s;
-            color: var(--text-muted);
-            background: transparent;
-        }
-
-        .switch-option.active {
-            background: white;
-            color: var(--purple-accent);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.03), 0 1px 2px rgba(0,0,0,0.05);
-        }
-
-        .price-section {
-            margin-bottom: 28px;
-        }
-
-        .price-main {
-            font-size: 42px;
-            font-weight: 800;
-            letter-spacing: -1px;
-            color: #0f0f1a;
-        }
-
-        .price-main small {
-            font-size: 16px;
-            font-weight: 500;
-            color: var(--text-muted);
-        }
-
-        .duration-buttons {
-            display: flex;
-            gap: 12px;
-            margin: 18px 0 24px;
-            flex-wrap: wrap;
-        }
-
-        .duration-btn {
-            background: var(--soft-gray);
-            border: 1px solid transparent;
-            padding: 8px 18px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 14px;
-            cursor: pointer;
-            transition: 0.2s;
-            color: var(--text-dark);
-        }
-
-        .duration-btn.active {
-            background: var(--purple-accent);
-            color: white;
-            box-shadow: 0 6px 12px -8px rgba(124,58,237,0.4);
-        }
-
-        .discount-badge {
-            background: #eef2ff;
-            color: #4c1d95;
-            font-size: 12px;
-            font-weight: 600;
-            border-radius: 40px;
-            padding: 4px 12px;
-            display: inline-block;
-            margin-left: 10px;
-            vertical-align: middle;
-        }
-
-        .features-list {
-            margin: 28px 0 20px;
-            border-top: 1px solid var(--border-light);
-            padding-top: 22px;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 14px;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .feature-item i {
-            width: 24px;
-            color: var(--purple-accent);
-        }
-
-        .addons {
-            background: #faf9fe;
-            border-radius: 24px;
-            padding: 18px;
-            margin: 18px 0 22px;
-        }
-
-        .addon-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 16px;
-            font-size: 14px;
-            font-weight: 500;
-            flex-wrap: wrap;
-        }
-
-        .addon-row:last-child {
-            margin-bottom: 0;
-        }
-
-        .addon-toggle {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .toggle-switch {
-            width: 44px;
-            height: 24px;
-            background: #ddd;
-            border-radius: 40px;
-            display: inline-block;
-            position: relative;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .toggle-switch.active {
-            background: var(--purple-accent);
-        }
-
-        .toggle-switch::after {
-            content: "";
-            width: 20px;
-            height: 20px;
-            background: white;
-            border-radius: 50%;
-            position: absolute;
-            top: 2px;
-            left: 3px;
-            transition: 0.2s;
-        }
-
-        .toggle-switch.active::after {
-            left: 21px;
-        }
-
-        .total-row {
-            display: flex;
-            justify-content: space-between;
-            font-weight: 800;
-            font-size: 20px;
-            margin: 20px 0 24px;
-            border-top: 1px dashed var(--border-light);
-            padding-top: 20px;
-        }
-
-        .checkout-btn {
-            background: #0a0a10;
-            border: none;
-            width: 100%;
-            padding: 16px;
-            border-radius: 60px;
-            color: white;
+            padding: 10px;
+            font-size: 13px;
             font-weight: 700;
-            font-size: 17px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+            color: var(--text-muted);
+            border-radius: 8px;
             cursor: pointer;
-            transition: 0.2s;
+            transition: all 0.2s;
         }
 
-        .checkout-btn:hover {
-            background: var(--purple-accent);
-            transform: scale(0.98);
+        .switch-btn.active {
+            background: var(--card-border);
+            color: var(--text-main);
+            border: 1px solid rgba(168, 85, 247, 0.4);
         }
 
-        /* QR PAGE (modal) */
-        .qr-page {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.85);
-            backdrop-filter: blur(8px);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            visibility: hidden;
-            opacity: 0;
-            transition: 0.2s;
+        /* Duration Buttons Grid */
+        .duration-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
         }
 
-        .qr-page.active {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        .qr-container {
-            max-width: 500px;
-            width: 90%;
-            background: white;
-            border-radius: 40px;
-            padding: 28px 24px 32px;
+        .duration-item {
+            background: #09090b;
+            border: 1px solid var(--card-border);
+            padding: 12px 8px;
+            border-radius: 12px;
             text-align: center;
-            position: relative;
-            box-shadow: 0 30px 40px rgba(0,0,0,0.2);
-            max-height: 90vh;
-            overflow-y: auto;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-muted);
+            transition: all 0.2s;
         }
 
-        .close-qr {
-            position: absolute;
-            right: 20px;
-            top: 20px;
-            background: #f0f0f0;
-            border-radius: 50%;
-            width: 34px;
-            height: 34px;
+        .duration-item.active {
+            border-color: var(--purple-neon);
+            background: var(--purple-glow);
+            color: var(--text-main);
+        }
+
+        .badge-discount {
+            display: block;
+            font-size: 10px;
+            color: var(--purple-neon);
+            margin-top: 2px;
+        }
+
+        /* Addons Module */
+        .addon-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .addon-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background: #09090b;
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            cursor: pointer;
+        }
+
+        .addon-item.active {
+            border-color: rgba(168, 85, 247, 0.4);
+        }
+
+        .addon-info {
             display: flex;
             align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: 0.2s;
+            gap: 10px;
+            font-size: 13px;
+            font-weight: 600;
         }
 
-        .qr-title {
+        .addon-info i {
+            color: var(--purple-neon);
+        }
+
+        .addon-price {
+            font-size: 13px;
             font-weight: 700;
-            font-size: 24px;
-            margin: 8px 0 4px;
+            color: var(--text-main);
         }
 
-        .qr-amount {
+        /* Right Side: High Converting Checkout Area */
+        .panel-checkout {
+            position: sticky;
+            top: 85px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .checkout-summary {
+            background: linear-gradient(145deg, #141417, #1c1c21);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+        }
+
+        .summary-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 14px;
+            margin-bottom: 16px;
+        }
+
+        .total-title {
+            font-size: 13px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+
+        .total-price-display {
             font-size: 32px;
             font-weight: 800;
-            margin: 12px 0;
-            color: var(--purple-accent);
+            letter-spacing: -1px;
+            color: var(--text-main);
         }
 
-        .qr-upi-id {
-            background: #f2f2f6;
-            padding: 10px;
-            border-radius: 40px;
-            font-size: 14px;
-            font-weight: 600;
-            margin: 10px 0;
-            word-break: break-all;
+        /* Verification input group built into dashboard */
+        .verification-box {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
 
-        .telegram-input-group {
-            background: #f8f9ff;
-            border-radius: 28px;
-            padding: 16px;
-            margin: 16px 0 12px;
-            text-align: left;
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
         }
 
-        .telegram-input-group label {
-            font-weight: 700;
-            display: block;
-            margin-bottom: 8px;
+        .input-wrapper i {
+            position: absolute;
+            left: 14px;
+            color: var(--text-muted);
             font-size: 14px;
         }
 
-        .telegram-input-group input {
+        .telegram-input {
             width: 100%;
-            padding: 14px 16px;
-            border-radius: 60px;
-            border: 1.5px solid #e2e8f0;
-            font-size: 15px;
-            transition: 0.2s;
-        }
-
-        .telegram-input-group input:focus {
-            outline: none;
-            border-color: var(--purple-accent);
-            box-shadow: 0 0 0 3px rgba(124,58,237,0.1);
-        }
-
-        .confirm-btn {
-            background: var(--purple-accent);
-            border: none;
-            width: 100%;
-            padding: 14px;
-            border-radius: 60px;
-            color: white;
-            font-weight: 700;
-            font-size: 16px;
-            cursor: pointer;
-            transition: 0.2s;
-            margin-top: 10px;
-        }
-
-        .confirm-btn:hover {
-            opacity: 0.9;
-        }
-
-        .error-msg {
-            color: #e53e3e;
-            font-size: 12px;
-            margin-top: 8px;
-            font-weight: 500;
-        }
-
-        /* Classic QR Display Section */
-        .qr-classic-display {
-            display: none;
-            margin-top: 24px;
-            border-top: 2px dashed #e2e8f0;
-            padding-top: 20px;
-        }
-
-        .instruction-text {
-            font-size: 15px;
-            font-weight: 700;
-            color: #2b9348;
-            margin-bottom: 14px;
-            background: #edfbd8;
-            padding: 10px;
+            background: #09090b;
+            border: 1px solid var(--card-border);
+            padding: 12px 14px 12px 40px;
             border-radius: 12px;
+            color: var(--text-main);
+            font-size: 14px;
+            font-family: inherit;
+            outline: none;
+            transition: all 0.2s;
         }
 
-        .qr-code-img {
-            background: white;
-            width: 220px;
-            height: 220px;
-            margin: 0 auto 16px;
-            border: 4px solid #000;
-            border-radius: 24px;
+        .telegram-input:focus {
+            border-color: var(--purple-neon);
+            box-shadow: 0 0 0 2px var(--purple-glow);
+        }
+
+        .btn-generate {
+            width: 100%;
+            background: var(--text-main);
+            color: var(--bg-dark);
+            border: none;
+            padding: 12px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            gap: 8px;
+            transition: all 0.2s;
         }
 
-        .qr-code-img img {
+        .btn-generate:hover {
+            background: var(--purple-neon);
+            color: var(--text-main);
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+        }
+
+        .error-hint {
+            font-size: 11px;
+            color: #ef4444;
+            font-weight: 500;
+            display: none;
+        }
+
+        /* Compact QR View Screen Card */
+        .qr-output-viewport {
+            display: none;
+            background: #000;
+            border: 2px solid var(--card-border);
+            border-radius: 20px;
+            padding: 16px;
+            text-align: center;
+            position: relative;
+            animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .screenshot-banner {
+            font-size: 12px;
+            color: var(--neon-green);
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            padding: 8px;
+            border-radius: 8px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .qr-frame {
+            background: white;
+            width: 170px;
+            height: 170px;
+            margin: 0 auto 12px;
+            border-radius: 12px;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qr-frame img {
             width: 100%;
             height: 100%;
             object-fit: contain;
         }
 
-        .upi-note {
-            font-size: 13px;
-            color: #111;
-            background: #f1f3f5;
-            padding: 10px;
-            border-radius: 30px;
-            font-weight: 600;
-            word-break: break-all;
-        }
-
-        .secondary-instruction {
-            margin-top: 12px;
+        .upi-details-badge {
             font-size: 12px;
-            color: #718096;
-            font-weight: 500;
+            color: var(--text-muted);
+            background: var(--card-dark);
+            padding: 6px 12px;
+            border-radius: 8px;
+            display: inline-block;
+            font-weight: 600;
+            margin-bottom: 4px;
         }
 
-        @media (max-width: 560px) {
-            .plan-card-inner { padding: 20px 18px; }
-            .price-main { font-size: 34px; }
-            .qr-code-img { width: 190px; height: 190px; }
+        .note-badge {
+            font-size: 11px;
+            color: var(--purple-neon);
+            font-weight: 700;
+            display: block;
+        }
+
+        /* Responsive Layout Overrides */
+        @media (max-width: 868px) {
+            .app-workspace {
+                grid-template-columns: 1fr;
+                padding: 12px;
+                gap: 16px;
+            }
+            .panel-checkout {
+                position: relative;
+                top: 0;
+            }
+            .panel-heading h1 { font-size: 24px; }
+        }
+
+        @media (max-width: 480px) {
+            .premium-nav { padding: 12px 16px; }
+            .section-card { padding: 12px; }
+            .qr-frame { width: 150px; height: 150px; }
         }
     </style>
 </head>
 <body>
 
-<header class="agency-header">
-    <div class="container header-inner">
-        <div class="logo">QB <span>Agency</span></div>
-        <a href="https://t.me/quicklygrow" target="_blank" class="back-home"><i class="fab fa-telegram"></i> Back to main</a>
-    </div>
-</header>
+    <nav class="premium-nav">
+        <div class="nav-logo">QB <span>Agency</span></div>
+        <a href="https://t.me/quicklygrow" target="_blank" class="btn-back"><i class="fab fa-telegram"></i> Main Hub</a>
+    </nav>
 
-<main class="activate-main">
-    <div class="container">
-        <div class="page-title">
-            <h1>Activate your campaign</h1>
-            <p>Select your plan, add extras & complete payment — premium growth starts now</p>
-        </div>
-        <div class="plan-grid">
-            <div class="plan-card">
-                <div class="plan-card-inner">
-                    <div class="payment-method-switch" id="paymentToggle">
-                        <div class="switch-option" data-type="full">💎 Full Pay</div>
-                        <div class="switch-option" data-type="half">✨ Pay Half (50% now)</div>
-                    </div>
-                    <div class="price-section">
-                        <span class="price-main" id="displayPrice">₹19,998</span>
-                        <small> / month</small>
-                    </div>
-                    <div class="duration-buttons" id="durationGroup">
-                        <div class="duration-btn" data-months="1">1 Month</div>
-                        <div class="duration-btn active" data-months="2">2 Months</div>
-                        <div class="duration-btn" data-months="3">3 Months <span class="discount-badge">-₹10k</span></div>
-                    </div>
-                    <div class="features-list">
-                        <div class="feature-item"><i class="fas fa-check-circle"></i> Full campaign management (monthly basis)</div>
-                        <div class="feature-item"><i class="fas fa-check-circle"></i> Telegram channel/group optimization</div>
-                        <div class="feature-item"><i class="fas fa-check-circle"></i> High-converting landing pages</div>
-                        <div class="feature-item"><i class="fas fa-check-circle"></i> Video + Poster creatives included</div>
-                    </div>
-                    <div class="addons">
-                        <div class="addon-row">
-                            <div class="addon-toggle"><span>➕ Own Agency Ad Account</span></div>
-                            <div class="toggle-switch" id="toggleAgencyAccount"></div>
-                            <span style="font-weight:600;">+₹11,000</span>
-                        </div>
-                        <div class="addon-row">
-                            <div class="addon-toggle"><span>💰 $100 Fund in Agency Account</span></div>
-                            <div class="toggle-switch" id="toggleFunds"></div>
-                            <span style="font-weight:600;">+₹9,920</span>
-                        </div>
-                    </div>
-                    <div class="total-row"><span>Total Amount</span><span id="totalAmount">₹0</span></div>
-                    <button class="checkout-btn" id="checkoutBtn"><i class="fab fa-telegram"></i> Continue to Payment →</button>
-                    <div style="font-size:12px; text-align:center; margin-top:14px; color:#888;">Telegram username required for verification</div>
+    <main class="app-workspace">
+        
+        <!-- Left Side: Configurator Options -->
+        <section class="panel-controls">
+            <div class="panel-heading">
+                <h1>Activate Campaign</h1>
+                <p>Configure billing frequency and select platform add-ons below.</p>
+            </div>
+
+            <!-- Billing Plan Mode -->
+            <div class="section-card">
+                <span class="card-label">Payment Mode</span>
+                <div class="premium-switch" id="paymentToggle">
+                    <div class="switch-btn active" data-type="full">💎 Full Premium Pay</div>
+                    <div class="switch-btn" data-type="half">✨ Split 50% Upfront</div>
                 </div>
             </div>
-        </div>
-    </div>
-</main>
 
-<!-- QR Payment Modal -->
-<div id="qrPaymentModal" class="qr-page">
-    <div class="qr-container">
-        <div class="close-qr" id="closeQrBtn"><i class="fas fa-times"></i></div>
-        <div class="qr-title">🔐 Secure Payment</div>
-        <div class="qr-amount" id="qrAmountDisplay">₹0</div>
-        <div class="qr-upi-id">📱 UPI ID: yahooo999@apl</div>
-        
-        <!-- Telegram username input step -->
-        <div class="telegram-input-group">
-            <label><i class="fab fa-telegram"></i> Telegram Username (for verification)</label>
-            <input type="text" id="telegramUsernameInput" placeholder="e.g., john_doe or @alex123" autocomplete="off">
-            <div id="usernameErrorMsg" class="error-msg"></div>
-            <button class="confirm-btn" id="confirmUsernameBtn">Confirm & Generate QR Code</button>
-        </div>
-
-        <!-- Classic QR Section (Triggers only after validation) -->
-        <div class="qr-classic-display" id="qrClassicDisplay">
-            <div class="instruction-text">📸 Take Screenshot or Scan with another phone</div>
-            <div class="qr-code-img" id="qrCodeContainer">
-                <!-- Dynamic QR will load here -->
+            <!-- Cycle Selection -->
+            <div class="section-card">
+                <span class="card-label">Campaign Timeline</span>
+                <div class="duration-grid" id="durationGroup">
+                    <div class="duration-item" data-months="1">1 Month</div>
+                    <div class="duration-item active" data-months="2">2 Months</div>
+                    <div class="duration-item" data-months="3">
+                        3 Months
+                        <span class="badge-discount">-₹10k Save</span>
+                    </div>
+                </div>
             </div>
-            <div class="upi-note" id="upiNotePreview">📝 UPI Note: —</div>
-            <div class="secondary-instruction">Open any UPI app (GPay, PhonePe, Paytm), upload the screenshot, and pay.</div>
-        </div>
-    </div>
-</div>
+
+            <!-- Verified Addons Toggle Area -->
+            <div class="section-card">
+                <span class="card-label">Optional Infrastructure Add-ons</span>
+                <div class="addon-list">
+                    <div class="addon-item" id="addonAgencyBtn">
+                        <div class="addon-info">
+                            <i class="fas fa-plus-circle" id="agencyIcon"></i>
+                            <span>Own Agency Ad Account</span>
+                        </div>
+                        <div class="addon-price">+₹11,000</div>
+                    </div>
+                    <div class="addon-item" id="addonFundsBtn">
+                        <div class="addon-info">
+                            <i class="fas fa-plus-circle" id="fundsIcon"></i>
+                            <span>$100 Ad Account Load Funds</span>
+                        </div>
+                        <div class="addon-price">+₹9,920</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Side: Clean Instant Summary & Invisible Scroll QR Dashboard -->
+        <section class="panel-checkout">
+            <div class="checkout-summary">
+                <div class="summary-header">
+                    <div class="total-title">Consolidated Total</div>
+                    <div class="total-price-display" id="totalAmount">₹0</div>
+                </div>
+
+                <div class="verification-box">
+                    <div class="input-wrapper">
+                        <i class="fab fa-telegram"></i>
+                        <input type="text" id="telegramUsernameInput" class="telegram-input" placeholder="Enter Telegram Handle (e.g. alex_tg)" autocomplete="off">
+                    </div>
+                    <div id="usernameErrorMsg" class="error-hint"></div>
+                    <button class="btn-generate" id="generatePaymentBtn">
+                        <i class="fas fa-qrcode"></i> Generate Premium QR Code
+                    </button>
+                </div>
+            </div>
+
+            <!-- Elegant Instant Visual QR Module (No Overlay Modals, fits into standard flow perfectly) -->
+            <div class="qr-output-viewport" id="qrClassicDisplay">
+                <div class="screenshot-banner">
+                    <i class="fas fa-camera"></i> Take a Screenshot to scan or use another phone
+                </div>
+                <div class="qr-frame" id="qrCodeContainer">
+                    <!-- Dynamic QR Code Injected Instantly -->
+                </div>
+                <div>
+                    <div class="upi-details-badge">ID: yahooo999@apl</div>
+                    <span class="note-badge" id="upiNotePreview">📝 UPI Note: —</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
 
 <script>
-    // ---------- PRICING CONSTANTS ----------
     const BASE_MONTHLY_FULL = 19998;
     const BASE_MONTHLY_HALF = 9999;
     const DISCOUNT_3MONTH = 10000;
     const ADDON_AGENCY = 11000;
     const ADDON_FUNDS = 9920;
 
-    // State
     let paymentType = "full";
     let durationMonths = 2;
     let addonAgency = false;
     let addonFunds = false;
     let currentTotal = 0;
 
-    // DOM elements
-    const displayPriceSpan = document.getElementById('displayPrice');
+    // Elements
     const totalAmountSpan = document.getElementById('totalAmount');
-    const toggleAgency = document.getElementById('toggleAgencyAccount');
-    const toggleFunds = document.getElementById('toggleFunds');
-    const durationBtns = document.querySelectorAll('.duration-btn');
-    const paymentToggleOptions = document.querySelectorAll('#paymentToggle .switch-option');
-    const checkoutBtn = document.getElementById('checkoutBtn');
+    const paymentToggleOptions = document.querySelectorAll('#paymentToggle .switch-btn');
+    const durationBtns = document.querySelectorAll('.duration-item');
+    const addonAgencyBtn = document.getElementById('addonAgencyBtn');
+    const addonFundsBtn = document.getElementById('addonFundsBtn');
+    const agencyIcon = document.getElementById('agencyIcon');
+    const fundsIcon = document.getElementById('fundsIcon');
     
-    // Modal elements
-    const qrModal = document.getElementById('qrPaymentModal');
-    const closeQrBtn = document.getElementById('closeQrBtn');
-    const qrAmountDisplay = document.getElementById('qrAmountDisplay');
     const telegramInput = document.getElementById('telegramUsernameInput');
     const usernameErrorSpan = document.getElementById('usernameErrorMsg');
-    const confirmUsernameBtn = document.getElementById('confirmUsernameBtn');
-    
-    // QR Display elements
+    const generatePaymentBtn = document.getElementById('generatePaymentBtn');
     const qrClassicDisplay = document.getElementById('qrClassicDisplay');
     const qrCodeContainer = document.getElementById('qrCodeContainer');
     const upiNotePreviewSpan = document.getElementById('upiNotePreview');
 
-    // Helper: Transform Telegram username according to spec
     function transformTelegramUsernameToUPINote(raw) {
         let trimmed = raw.trim();
         if (trimmed.startsWith('@')) trimmed = trimmed.substring(1);
@@ -656,7 +571,6 @@
         return finalNote.length > 80 ? finalNote.substring(0, 80) : finalNote;
     }
 
-    // Compute total
     function computeTotal() {
         let monthly = paymentType === 'full' ? BASE_MONTHLY_FULL : BASE_MONTHLY_HALF;
         let subtotal = monthly * durationMonths;
@@ -666,95 +580,87 @@
         if (addonFunds) subtotal += ADDON_FUNDS;
         currentTotal = subtotal;
         
-        displayPriceSpan.innerText = `₹${monthly.toLocaleString('en-IN')}`;
         totalAmountSpan.innerText = `₹${currentTotal.toLocaleString('en-IN')}`;
-        return currentTotal;
     }
 
-    function updateMainUI() {
+    function syncUI() {
         computeTotal();
-        if (addonAgency) toggleAgency.classList.add('active');
-        else toggleAgency.classList.remove('active');
-        if (addonFunds) toggleFunds.classList.add('active');
-        else toggleFunds.classList.remove('active');
         
-        paymentToggleOptions.forEach(opt => {
-            const type = opt.getAttribute('data-type');
-            if ((type === 'full' && paymentType === 'full') || (type === 'half' && paymentType === 'half')) {
-                opt.classList.add('active');
-            } else {
-                opt.classList.remove('active');
-            }
-        });
-        
-        durationBtns.forEach(btn => {
-            const months = parseInt(btn.getAttribute('data-months'));
-            if (months === durationMonths) btn.classList.add('active');
-            else btn.classList.remove('active');
-        });
+        // Render Active Addon States
+        if (addonAgency) {
+            addonAgencyBtn.classList.add('active');
+            agencyIcon.className = "fas fa-check-circle";
+        } else {
+            addonAgencyBtn.classList.remove('active');
+            agencyIcon.className = "fas fa-plus-circle";
+        }
+
+        if (addonFunds) {
+            addonFundsBtn.classList.add('active');
+            fundsIcon.className = "fas fa-check-circle";
+        } else {
+            addonFundsBtn.classList.remove('active');
+            fundsIcon.className = "fas fa-plus-circle";
+        }
+
+        // Realtime update QR structure dynamically if it is already displayed
+        if(qrClassicDisplay.style.display === 'block') {
+            processPaymentRegistration();
+        }
     }
 
-    // Process & Show Classic QR
-    function generateClassicQR() {
+    function processPaymentRegistration() {
         const raw = telegramInput.value;
         if (!raw.trim()) {
-            usernameErrorSpan.innerText = "Telegram username required";
+            usernameErrorSpan.innerText = "Valid Telegram Handle Required.";
+            usernameErrorSpan.style.display = 'block';
             qrClassicDisplay.style.display = 'none';
             return;
         }
         
         const transformedNote = transformTelegramUsernameToUPINote(raw);
         if (!transformedNote) {
-            usernameErrorSpan.innerText = "Username must have at least 3 alphanumeric characters.";
+            usernameErrorSpan.innerText = "Requires min 3 characters (excluding underscores).";
+            usernameErrorSpan.style.display = 'block';
             qrClassicDisplay.style.display = 'none';
             return;
         }
 
-        // Reset error text
-        usernameErrorSpan.innerText = "";
+        usernameErrorSpan.style.display = 'none';
         
-        // Build classic upi string
         const upiLink = `upi://pay?pa=yahooo999@apl&pn=QB%20Agency&am=${currentTotal}&cu=INR&tn=${encodeURIComponent(transformedNote)}`;
-        const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(upiLink)}`;
+        const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiLink)}`;
         
-        // Inject into classic structure
-        qrCodeContainer.innerHTML = `<img src="${qrApiUrl}" alt="Scan QR Code">`;
+        qrCodeContainer.innerHTML = `<img src="${qrApiUrl}" alt="Gateway QR">`;
         upiNotePreviewSpan.innerText = `📝 UPI Note: ${transformedNote}`;
-        
-        // Show QR block smoothly
         qrClassicDisplay.style.display = 'block';
     }
 
-    // Event listeners
+    // Interactivity Listeners
     paymentToggleOptions.forEach(opt => {
-        opt.addEventListener('click', () => { paymentType = opt.getAttribute('data-type'); updateMainUI(); });
+        opt.addEventListener('click', () => {
+            paymentToggleOptions.forEach(b => b.classList.remove('active'));
+            opt.classList.add('active');
+            paymentType = opt.getAttribute('data-type');
+            syncUI();
+        });
     });
     
     durationBtns.forEach(btn => {
-        btn.addEventListener('click', () => { durationMonths = parseInt(btn.getAttribute('data-months')); updateMainUI(); });
+        btn.addEventListener('click', () => {
+            durationBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            durationMonths = parseInt(btn.getAttribute('data-months'));
+            syncUI();
+        });
     });
     
-    toggleAgency.addEventListener('click', () => { addonAgency = !addonAgency; updateMainUI(); });
-    toggleFunds.addEventListener('click', () => { addonFunds = !addonFunds; updateMainUI(); });
-    
-    checkoutBtn.addEventListener('click', () => {
-        computeTotal();
-        if (currentTotal <= 0) {
-            alert("Invalid plan total.");
-            return;
-        }
-        telegramInput.value = "";
-        usernameErrorSpan.innerText = "";
-        qrClassicDisplay.style.display = 'none'; // hide until confirmed
-        qrModal.classList.add('active');
-        qrAmountDisplay.innerText = `₹${currentTotal.toLocaleString('en-IN')}`;
-    });
-    
-    closeQrBtn.addEventListener('click', () => qrModal.classList.remove('active'));
-    confirmUsernameBtn.addEventListener('click', generateClassicQR);
+    addonAgencyBtn.addEventListener('click', () => { addonAgency = !addonAgency; syncUI(); });
+    addonFundsBtn.addEventListener('click', () => { addonFunds = !addonFunds; syncUI(); });
+    generatePaymentBtn.addEventListener('click', processPaymentRegistration);
 
-    // Initial load
-    updateMainUI();
+    // Initial calculations
+    syncUI();
 </script>
 </body>
 </html>
